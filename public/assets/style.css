@@ -1,0 +1,86 @@
+@font-face {
+    font-family: 'Nazanin';
+    src: local('Nazanin'),
+    local('BNazanin'),
+    url(../fonts/nazanin/Far_NazaninBd.eot) format('eot'),
+    url(../fonts/nazanin/Far_NazaninBd.woff) format('woff'),
+    url(../fonts/nazanin/Far_NazaninBd.ttf) format('truetype'),
+    url(../fonts/nazanin/Far_NazaninBd.otf) format('truetype'),
+    url(../fonts/nazanin/Far_NazaninBd.svg) format('svg');
+    font-weight: 400;
+    font-stretch: normal;
+    /*font-style: normal;*/
+}
+
+@font-face {
+    font-family: 'BTitr';
+    src: url(../fonts/BTitr/b_titr.eot);
+    src: url(../fonts/BTitr/b_titr.eot?#iefix) format('embedded-opentype'),
+    url(../fonts/BTitr/b_titr.otf) format('otf'),
+    url(../fonts/BTitr/b_titr.svg#b_titr) format('svg'),
+    url(../fonts/BTitr/b_titr.woff) format('woff'),
+    url(../fonts/BTitr/b_titr.woff2) format('woff2'),
+    url(../fonts/BTitr/b_titr.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'BZar';
+    src: url('../fonts/BZar/B_zar.eot');
+    src: url('../fonts/BZar/B_zar.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/BZar/B_zar.woff2') format('woff2'),
+    url('../fonts/BZar/B_zar.woff') format('woff'),
+    url('../fonts/BZar/B_zar.ttf') format('truetype'),
+    url('../fonts/BZar/B_zar.svg#B_zar') format('svg'),
+    url('../fonts/BZar/B_zar.otf') format('otf');
+}
+
+@font-face {
+    font-family: 'iransans';
+    src: url(../fonts/iransans/IRANSans.eot);
+    src: url(../fonts/iransans/IRANSans.eot?#iefix) format('embedded-opentype'),
+    url(../fonts/iransans/IRANSans.woff) format('woff'),
+    url(../fonts/iransans/IRANSans.woff2) format('woff2'),
+    url(../fonts/iransans/IRANSans.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'iransans_bold';
+    src: url(../fonts/iransans/IRANSans_Bold.eot);
+    src: url(../fonts/iransans/IRANSans_Bold.eot?#iefix) format('embedded-opentype'),
+    url(../fonts/iransans/IRANSans_Bold.woff) format('woff'),
+    url(../fonts/iransans/IRANSans_Bold.woff2) format('woff2'),
+    url(../fonts/iransans/IRANSans_Bold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'iransans_medium';
+    src: url(../fonts/iransans/IRANSans_Medium.eot);
+    src: url(../fonts/iransans/IRANSans_Medium.eot?#iefix) format('embedded-opentype'),
+    url(../fonts/iransans/IRANSans_Medium.woff) format('woff'),
+    url(../fonts/iransans/IRANSans_Medium.woff2) format('woff2'),
+    url(../fonts/iransans/IRANSans_Medium.ttf) format('truetype');
+}
+
+.font_iransans {
+    font-family: 'iransans' !important;
+}
+
+.font_iransans_bold {
+    font-family: 'iransans_bold' !important;
+}
+
+.font_iransans_medium {
+    font-family: 'iransans_medium' !important;
+}
+
+.font_bzar {
+    font-family: 'BZar' !important;
+}
+
+.font_btitr {
+    font-family: 'BTitr' !important;
+}
+
+.font_nazanin {
+    font-family: 'Nazanin' !important;
+}

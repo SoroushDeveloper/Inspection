@@ -6,7 +6,7 @@
     <title>{{ $title ?? 'بازرسی' }}</title>
     @vite('resources/css/app.css')
 </head>
-<body class="bg-gray-100 dark:bg-gray-900 text-black dark:text-white">
+<body class="bg-gray-100 dark:bg-gray-900 text-black dark:text-white font_iransans">
 @if(auth()->check())
     <aside id="default-sidebar"
            class="fixed top-0 right-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
