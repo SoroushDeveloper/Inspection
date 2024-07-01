@@ -1,5 +1,9 @@
 <div class="p-5">
-    <h1 class="text-center mb-5">انواع واحد های آموزشی</h1>
+    <div class="flex justify-between items-center mb-5">
+        <h1 class="text-center text-xl">
+            انواع واحد های آموزشی
+        </h1>
+    </div>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <form wire:submit="save">
             <table class="w-full text-sm text-left rtl:text-right text-gray-900 dark:text-gray-100">

@@ -1,7 +1,9 @@
 <div class="p-5">
-    <h1 class="text-center mb-5">
-        ویژگی های فنی
-    </h1>
+    <div class="flex justify-between items-center mb-5">
+        <h1 class="text-center text-xl">
+            ویژگی های فنی
+        </h1>
+    </div>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <form wire:submit="save">
             <table class="w-full text-sm text-left rtl:text-right text-gray-900 dark:text-gray-100">
@@ -15,6 +17,12 @@
                     </th>
                     <th scope="col" class="px-6 py-3">
                         رشته
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        تاریخ و زمان ایجاد
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        تاریخ و زمان آخرین ویرایش
                     </th>
                     <th scope="col" class="px-6 py-3">
                         عملیات
@@ -46,6 +54,10 @@
                                 @endforeach
                             </select>
                         </td>
+                        <td class="px-6 py-4">
+                            {{ jdate()->format('Y/m/d') }}
+                        </td>
+                        <td></td>
                         <td class="px-6 py-4 text-right">
                             <button type="submit"
                                     class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
@@ -64,6 +76,12 @@
                         </td>
                         <td class="px-6 py-4">
                             {{ $property->Major->code.' | '.$property->Major->title }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ jdate($property->created_at)->format('Y/m/d | ساعت H:i:s') }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ jdate($property->updated_at)->format('Y/m/d | ساعت H:i:s') }}
                         </td>
                         <td class="px-6 py-4 text-right">
                             @if(auth()->user()->isAdmin())

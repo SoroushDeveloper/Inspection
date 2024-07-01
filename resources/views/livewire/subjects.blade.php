@@ -1,6 +1,10 @@
 <div class="p-5">
+    <div class="flex justify-between items-center mb-5">
+        <h1 class="text-center text-xl">
+            موضوعات بازدید
+        </h1>
+    </div>
     <h1 class="text-center mb-5">
-        موضوعات بازدید
     </h1>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <form wire:submit="save">
