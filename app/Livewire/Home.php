@@ -62,12 +62,13 @@ class Home extends Component
         $this->validate([
             'form.first_name' => 'required|max:255',
             'form.last_name' => 'required|max:255',
-            'form.password' => 'nullable',
+            'form.password' => $this->form['password'] == "" ? 'nullable' : 'required|min:4',
             'form.email' => $this->form['email'] == auth()->user()->email ? 'required|email' : 'required|email|unique:users,email',
             'form.personal_code' => $this->form['personal_code'] == auth()->user()->personal_code ? 'required' : 'required|unique:users,personal_code',
         ]);
-//        auth()->user()->update($this->form);
-        return $this->redirect('/Home');
+        $this->form['password'] = $this->form['password'] == "" ? auth()->user()->password : $this->form['password'];
+        auth()->user()->update($this->form);
+        return $this->redirect(route('Home'));
     }
 
     #[Title('میز کار')]

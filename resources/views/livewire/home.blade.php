@@ -178,7 +178,7 @@
                     <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         نام خانوادگی
                     </label>
-                    <input type="email" id="last_name" name="last_name" wire:model="form.last_name"
+                    <input type="text" id="last_name" name="last_name" wire:model="form.last_name"
                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                            placeholder="" required/>
                 </div>
@@ -204,7 +204,7 @@
                     </label>
                     <input type="password" id="password" name="password" wire:model="form.password"
                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                           placeholder="فقط در صورت نیاز به تغییر رمز پر شود" required/>
+                           placeholder="فقط در صورت نیاز به تغییر رمز پر شود"/>
                 </div>
             </div>
             <div class="text-center">
