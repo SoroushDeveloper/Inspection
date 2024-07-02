@@ -16,4 +16,14 @@ class Inspection extends Model
     {
         return $this->morphMany(File::class, 'fileable');
     }
+
+    public function User()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function Institution()
+    {
+        return $this->belongsTo(Institution::class, 'institution_id', 'id');
+    }
 }

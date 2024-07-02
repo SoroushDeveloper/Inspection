@@ -29,6 +29,10 @@ class CreateInspection extends Component
         'subject_id' => '',
         'consistency_id' => '',
         'major_id' => '',
+        'advantages' => '',
+        'disadvantages' => '',
+        'description' => '',
+        'operations' => '',
     ];
     public $files = [];
 
@@ -47,8 +51,15 @@ class CreateInspection extends Component
             'form.institution_id' => 'required',
             'form.subject_id' => 'required',
             'form.consistency_id' => 'required',
+            'form.major_id' => 'required',
+            'form.advantages' => 'required',
+            'form.disadvantages' => 'required',
+            'form.description' => 'nullable',
+            'form.operations' => 'nullable',
         ]);
         $this->form['user_id'] = auth()->id();
+        $this->form['advantages'] = json_encode($this->form['advantages']);
+        $this->form['disadvantages'] = json_encode($this->form['disadvantages']);
         $inspection = Inspection::query()->create($this->form);
         if (!is_null($this->files)) {
             foreach ($this->files as $file) {

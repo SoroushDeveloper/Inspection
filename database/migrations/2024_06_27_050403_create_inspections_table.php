@@ -16,12 +16,11 @@ return new class extends Migration {
             $table->integer('institution_id');
             $table->integer('subject_id');
             $table->integer('major_id');
+            $table->integer('consistency_id');
             $table->text('advantages');
             $table->text('disadvantages');
-            $table->text('suggestions')->nullable();
-            $table->text('property_titles');
-            $table->text('property_details');
-            $table->text('property_states');
+            $table->text('operations')->nullable();
+            $table->text('description')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
