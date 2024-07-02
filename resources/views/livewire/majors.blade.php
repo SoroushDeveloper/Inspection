@@ -19,6 +19,12 @@
                         کد
                     </th>
                     <th scope="col" class="px-6 py-3">
+                        تاریخ و زمان ایجاد
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        تاریخ و زمان آخرین ویرایش
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                         عملیات
                     </th>
                 </tr>
@@ -41,6 +47,10 @@
                                    wire:model="form.code">
                             @error('form.code') <span class="text-red-600">{{ $message }}</span> @enderror
                         </td>
+                        <td class="px-6 py-4">
+                            {{ jdate()->format('Y/m/d') }}
+                        </td>
+                        <td class="px-6 py-4"></td>
                         <td class="px-6 py-4 text-right">
                             <button type="submit"
                                     class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
@@ -59,6 +69,12 @@
                         </td>
                         <td class="px-6 py-4">
                             {{ $major->code }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ jdate($major->created_at)->format('Y/m/d | ساعت H:i:s') }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ jdate($major->updated_at)->format('Y/m/d | ساعت H:i:s') }}
                         </td>
                         <td class="px-6 py-4 text-right">
                             @if(auth()->user()->isAdmin())

@@ -16,6 +16,15 @@
                         عنوان
                     </th>
                     <th scope="col" class="px-6 py-3">
+                        ایجاد کننده
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        تاریخ و زمان ایجاد
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        تاریخ و زمان آخرین ویرایش
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                         عملیات
                     </th>
                 </tr>
@@ -30,6 +39,13 @@
                             <input type="text" wire:model="form.title"
                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </td>
+                        <td class="px-6 py-4">
+                            {{ auth()->user()->FullName() }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ jdate()->format('Y/m/d') }}
+                        </td>
+                        <td class="px-6 py-4"></td>
                         <td class="px-6 py-4 text-right">
                             <button type="submit"
                                     class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
@@ -45,6 +61,15 @@
                         </td>
                         <td class="px-6 py-4">
                             {{ $type->title }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $type->User->FullName() }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ jdate($type->created_at)->format('Y/m/d | ساعت H:i:s') }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ jdate($type->updated_at)->format('Y/m/d | ساعت H:i:s') }}
                         </td>
                         <td class="px-6 py-4 text-right">
                             @if(auth()->user()->isAdmin())
