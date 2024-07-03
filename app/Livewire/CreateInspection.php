@@ -8,6 +8,7 @@ use App\Models\Inspection;
 use App\Models\Institution;
 use App\Models\Major;
 use App\Models\Subject;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -60,22 +61,31 @@ class CreateInspection extends Component
         $this->form['user_id'] = auth()->id();
         $this->form['advantages'] = json_encode($this->form['advantages']);
         $this->form['disadvantages'] = json_encode($this->form['disadvantages']);
-        $inspection = Inspection::query()->create($this->form);
-        if (!is_null($this->files)) {
-            foreach ($this->files as $file) {
-                $year = Jalalian::now()->format('%Y');
-                $month = Jalalian::now()->format('%m');
-                $filename = time() . '-' . $file->getClientOriginalName() . '.' . $file->getClientOriginalExtension();
-                $location = public_path('/public_data/inspections/' . $year . '/' . $month);
-                $file->move($location, $filename);
-                $inspection->files()->create([
-                    'name' => $file->getClientOriginalName(),
-                    'nameFile' => "/public_data/inspections/$year/$month/$filename",
-                    'extension' => $file->getClientOriginalExtension(),
-                ]);
+        DB::beginTransaction();
+        try {
+            $inspection = Inspection::query()->create($this->form);
+            if (!is_null($this->files)) {
+                foreach ($this->files as $file) {
+                    $year = Jalalian::now()->format('%Y');
+                    $month = Jalalian::now()->format('%m');
+                    $filename = time() . '-' . $file->getClientOriginalName() . '.' . $file->getClientOriginalExtension();
+                    $location = public_path('/public_data/inspections/' . $year . '/' . $month);
+                    $file->move($location, $filename);
+                    $inspection->files()->create([
+                        'name' => $file->getClientOriginalName(),
+                        'nameFile' => "/public_data/inspections/$year/$month/$filename",
+                        'extension' => $file->getClientOriginalExtension(),
+                    ]);
+                }
             }
+            dd($inspection->files);
+            DB::commit();
+            return $this->redirect('/Inspections');
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            dd($exception);
         }
-        return $this->redirect('/Inspections');
+
     }
 
     #[Title('ثبت بازرسی')]

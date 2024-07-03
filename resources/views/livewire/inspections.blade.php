@@ -24,7 +24,13 @@
                     آموزشگاه
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    تاریخ و زمان ایجاد
+                    موضوع بازدید
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    سطح پیگیری
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    تاریخ ثبت بازدید
                 </th>
                 <th scope="col" class="px-6 py-3">
                     عملیات
@@ -44,7 +50,13 @@
                         {{ $inspection->Institution->name }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ jdate($inspection->created_at)->format('Y/m/d | ساعت H:i:s') }}
+                        {{ $inspection->Subject->title }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ $inspection->Consistency->title }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ jdate($inspection->created_at)->format('%A, %d %B %Y | ساعت H:i:s') }}
                     </td>
                     <td class="px-6 py-4 text-right">
                         <a

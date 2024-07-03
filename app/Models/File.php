@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class File extends Model
@@ -12,12 +13,12 @@ class File extends Model
 
     protected $guarded = [];
 
-    public function fileable()
+    public function fileable(): MorphTo
     {
         return $this->morphTo('fileable', 'fileable_type', 'fileable_id');
     }
 
-    public function status()
+    public function status(): object
     {
         $image_array = ['jpg', 'JPG', 'JPEG', 'jpeg', 'gif', 'png'];
         $extension = explode('.', $this->nameFile);

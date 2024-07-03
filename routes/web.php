@@ -37,8 +37,6 @@ Route::middleware(Auth::class)->group(function () {
 
     Route::get('/Commons', Commons::class)->name('Commons');
     Route::get('/Consistencies', Consistencies::class)->name('Consistencies');
-    Route::get('/Genres', Genres::class);
-    Route::get('/Grades', Grades::class);
     Route::get('/Inspections', Inspections::class)->name('Inspections');
     Route::get('/Institutions', Institutions::class)->name('Institutions');
     Route::get('/Majors', Majors::class)->name('Majors');
